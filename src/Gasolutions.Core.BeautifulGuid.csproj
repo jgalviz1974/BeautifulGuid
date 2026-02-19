@@ -10,7 +10,7 @@
     <Company>Gasolutions SAS</Company>
     <Description>Extension methods to convert GUIDs into readable and user-friendly strings with beautiful formatting options.</Description>
     <Copyright>Gasolutions®</Copyright>
-    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
