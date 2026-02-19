@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>	
+	<TargetFramework>net9.0</TargetFramework> 
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+	<LangVersion>13.0</LangVersion>    
+	<Title>Beautiful GUIDs by Gasolutions - Readable GUID Generation.</Title>
+    <Authors>José David Galviz Muñoz</Authors>
+    <Company>Gasolutions SAS</Company>
+    <Description>Extension methods to convert GUIDs into readable and user-friendly strings with beautiful formatting options.</Description>
+    <Copyright>Gasolutions®</Copyright>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<AssemblyVersion>1.0.8.0</AssemblyVersion>
+    <Version>$(AssemblyVersion)</Version>
+    <FileVersion>$(AssemblyVersion)</FileVersion>  
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	<PackageOutputPath Condition="'$(SolutionDir)' != ''">$(SolutionDir)nupkgs</PackageOutputPath>
+	<PackageOutputPath Condition="'$(SolutionDir)' == ''">$(MSBuildProjectDirectory)\nupkgs</PackageOutputPath>
+	<IsPackable>true</IsPackable>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+	<!-- Leer CHANGELOG.md y poblar PackageReleaseNotes antes de empaquetar -->
+	<Target Name="ReadPackageReleaseNotes" BeforeTargets="GenerateNuspec;Pack">
+		<ReadLinesFromFile File="$(MSBuildProjectDirectory)\CHANGELOG.md">
+			<Output TaskParameter="Lines" ItemName="ReleaseNotesLines" />
+		</ReadLinesFromFile>
+
+		<PropertyGroup>
+			<!-- Unir las líneas leídas en una sola propiedad separada por saltos de línea (%0A) -->
+			<PackageReleaseNotes>@(ReleaseNotesLines->'%(Identity)', '%0A')</PackageReleaseNotes>
+		</PropertyGroup>
+	</Target>
+	
+  <ItemGroup>
+    <None Update="readme.md">
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+</Project>
