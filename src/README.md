@@ -1,2 +1,2 @@
 # BeautifulGuid
-Beautiful GUID es un conjunto de extensiones que permiten convertir GUIDs en cadenas más legibles y amigables utilizando una codificación base32 personalizada.
+Beautiful GUID is a set of extensions that allow you to convert GUIDs into more readable and user-friendly strings using a custom base32 encoding.
