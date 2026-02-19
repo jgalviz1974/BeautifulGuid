@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="src/Gasolutions.Core.BeautifulGuid.csproj" />
+  <Project Path="tests/Gasolutions.Core.BeautifulGuid.Tests.csproj" />
 </Solution>
